@@ -29,7 +29,7 @@
     risk
     conclusion
   ].each do |name| %>
-    <% if d.key? name %>
+    <% if context.key? name %>
       \include{content/<%= name %>}
     <% end %>
   <% end %>
