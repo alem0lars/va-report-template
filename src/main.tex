@@ -1,0 +1,42 @@
+\documentclass[10pt, a4paper, twoside]{amsbook}
+
+\include{header/packages}
+\include{header/config}
+
+\addbibresource{bibliodb.bib}
+
+\include{header/commands}
+\include{header/keywords}
+
+\begin{document}
+
+  \include{content/frontmatter}
+
+  \tableofcontents
+
+  \sloppy
+
+  <% %i[
+    introduction
+    information_gathering
+    passive_intelligence
+    active_intelligence
+    corporate_intelligence
+    personnel_intelligence
+    vulnerability_assessment
+    exploitation_confirmation
+    post_exploitation
+    risk
+    conclusion
+  ].each do |name| %>
+    <% if d.key? name %>
+      \include{content/<%= name %>}
+    <% end %>
+  <% end %>
+
+  \printbibliography{}
+
+\end{document}
+
+
+<%# vim: set filetype=eruby.tex : %>

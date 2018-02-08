@@ -1,0 +1,17 @@
+%!TEX root = ../main.tex
+
+
+% Convert an SVG file to PDF and include it.
+%
+% Parameters:
+%   1. Path to SVG file.
+%
+% Requirements: `librsvg`
+%
+\newcommand{\includesvg}[1]{%
+  \immediate\write18{rsvg-convert -f pdf -a -o #1.pdf #1.svg}%
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#1.pdf}
+}
+
+
+<%# vim: set filetype=eruby.tex : %>
