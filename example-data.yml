@@ -5,12 +5,12 @@ authors:
 customer:
   name: Istituto Farfallino
 
-title: "Click \\& Play\\\\Security Assessment"
+title: "Farfalline\\\\Security Assessment"
 
 assets:
-  - name: www.farfalle-a-gogo.it
+  - name: www.farfalline.it
     description: Main website
-  - name: www.meetme.farfalle-a-gogo.it
+  - name: www.join.farfalline.it
     description: Meeting section of the website
 
 date: "8 Feb 2018"
