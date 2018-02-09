@@ -63,6 +63,16 @@ control.clickandplay.it. 21599  IN      A       94.20
           \end{minted}
       \end{itemize}
 
+      \begin{center}
+        \begin{tabularx}{0.4\textwidth}{c c}
+          \toprule
+          \textbf{IP} & \textbf{Hostname} \\ \midrule
+          % TODO ale for each IP-HOSTNAME add row
+          94.247.8.55 &  www.clickandplay.it \\ \midrule
+          94.247.8.130 & control.clickandplay.it  \\
+          \bottomrule
+        \end{tabularx}
+      \end{center}
   <% end %>
 
   <% if ig.key? :active_intelligence %>
@@ -85,6 +95,7 @@ control.clickandplay.it. 21599  IN      A       94.20
     dozens of other characteristics.
 
     \begin{itemize}
+      % TODO ale for each IP-NMAP-OUTPUT add item+minted
       \item \textbf{94.247.8.130}
           \begin{minted}[breaklines=true]{text}
 Nmap scan report for host-94-247-8-130.venis.it (94.247.8.130)
