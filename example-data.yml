@@ -143,6 +143,40 @@ chapters:
     corporate_intelligence:
     personnel_intelligence:
   vulnerability_assessment:
+    findings:
+      - name: A6-Security Misconfiguration
+        severity: Low
+        description: |
+          Default root web page accessible.
+          Security misconfiguration can happen at any level of an application stack,
+          including the network services, platform, web server, application server,
+          database, frameworks, custom code, and pre-installed virtual machines,
+          containers, or storage. Automated scanners are useful for detecting
+          misconfigurations, use of default accounts or configurations, unnecessary
+          services, legacy options, etc.
+        recommendation: |
+          A task to review and update the configurations appropriate to
+          all security notes, updates and patches as part of the patch management
+          process.
+        references: https://www.owasp.org/index.php/Testing_for_configuration_management
+        component-affected: https://www.join.farfalline.it
+      - name: A6-Security Misconfiguration
+        severity: Low
+        description: |
+          The WordPress 'https://www.farfalline.it/readme.html' file exists exposing
+          default content that can help an attacker to guess the version of the software.
+          Security misconfiguration can happen at any level of an application stack,
+          including the network services, platform, web server, application server,
+          database, frameworks, custom code, and pre-installed virtual machines,
+          containers, or storage. Automated scanners are useful for detecting
+          misconfigurations, use of default accounts or configurations, unnecessary
+          services, legacy options, etc.
+        recommendation: |
+          A task to review and update the configurations appropriate to
+          all security notes, updates and patches as part of the patch management
+          process.
+        references: https://www.owasp.org/index.php/Testing_for_configuration_management
+        component-affected: https://www.farfalline.it/readme.html
   exploitation_confirmation:
   post_exploitation:
   risk:
