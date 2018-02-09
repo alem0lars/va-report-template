@@ -1,20 +1,22 @@
 %!TEX root = ../main.tex
 
 
-\chapter{Introduction}\label{cha:introduction}
+\chapter{Introduction}\label{ch:introduction}
 
   <%# 1. Personnel involved in the testing from both the Client and Penetration
          Testing Team %>
   The following document was written as a reference for the security
   assessment done by <%= context[:authors].map do |author|
     author[:name]
-  end.join(", ") %> towards <%= context[:customer][:name] %> on <%= date %>.
+  end.join(", ") %> towards <%= context[:customer][:name] %> on
+  <%= context[:date] %>.
 
   <%# 2. Contact information %>
-  <%# TODO %>
+
+    <%# TODO %>
 
   <%# 3. Assets involved in testing %>
-  \section{Assets involved}\label{sec:assets-involved}
+  \section{Assets involved}\label{sec:assets}
 
     The following assets were involved during the testing activities:
 
@@ -29,43 +31,71 @@
     \end{itemize}
 
   <%# 4. Objectives of Test %>
-  <%# TODO %>
+
+    <%# TODO %>
 
   <%# 5. Scope of Test %>
-  <%# TODO %>
+  \section{Context \& Scope}\label{sec:scope}
+
+    This audit has been carried out at the request of
+    <%= context[:customer][:name] %>. Its goal was to evaluate the security of
+    the assets under test, as described in section: \nameref{sec:assets}.
+
+    The study focuses on main \textbf{Web Vulnerabilities} as described in
+    \textbf{OWASP Web Application Penetration Testing Methodology}.
+
+    In particular the following testing areas have been considered:
+
+    \begin{itemize}
+      \item Configuration and Deployment Management Testing
+      \item Identity Management Testing
+      \item Authentication Testing
+      \item Authorization Testing
+      \item Session Management Testing
+      \item Input Validation Testing
+      \item Error Handling Testing
+      \item Cryptography Testing
+      \item Business Logic Testing
+      \item Client Side Testing
+    \end{itemize}
 
   <%# 6. Strength of Test %>
   \section{Strength of Test}\label{sec:strength-test}
 
-  <%# TODO if invasiveTestDone => Strength = High %>
+    <%# TODO if invasiveTestDone => Strength = High %>
 
-  The tests were executed in Safe Check. Doing so there is no possibilities to
-  disrupt the services during the vulnerability scans. However, this safer
-  approach entails some risk and a lower level of strength. Not all exploit were
-  tested nor DoS/DDoS attacks were performed. External attackers try to break
-  into the system without worrying about what can be or can not be damaged.
+    The tests were executed in Safe Check. Doing so there is no possibilities to
+    disrupt the services during the vulnerability scans.
+    However, this safer approach entails some risk and a lower level of
+    strength: not all exploit were tested nor DoS or DDoS attacks were
+    performed.
+    Instead, external attackers would try to break into the system without
+    having to worry about what can be damaged.
 
   <%# 7. Approach %>
   \section{Approach}\label{sec:approach}
 
-  <%# TODO if Black-Box %>
+    <%# TODO if Black-Box %>
 
-  The team has done a \textbf{Black-Box Vulnerability Assessment} and
-  Penetration Test. No prior knowledge of a company network is known except the
-  two IP mentioned above. In essence an example of this is when an external web
-  based test is to be carried out and only the details of a website URL or IP
-  address is supplied to the testing team. It would be their role to attempt to
-  break into the company website/ network. This would equate to an external
-  attack carried out by a malicious hacker.
+    The team has done a \textbf{Black-Box Vulnerability Assessment} and
+    \textbf{Penetration Test}.
+    No prior knowledge of a company network is known except the endpoints
+    mentioned above.
+    In essence an example of this is when an external web based test is to be
+    carried out and only the details of a website URL or IP address is supplied
+    to the testing team.
+    It would be their role to attempt to break into the company website or
+    network.
+    This would equate to an external attack carried out by a malicious hacker.
 
   <%# 8. Threat / Grading Structure %>
   \section{Threat}\label{sec:threat}
 
-  A threat is a potential for violation of security, which exists when there is
-  a circumstance, capability, action, or event that could breach security and
-  cause harm. In this particular scenario we try to anticipate and overcome
-  problems from malicious agents (both human and software) intentional or
-  unintentional.
+    A threat is a potential for violation of security, which exists when there
+    is a circumstance, capability, action, or event that could breach security
+    and cause harm.
+    In this particular scenario we try to anticipate and overcome problems from
+    malicious agents (both human and software) intentional or unintentional.
 
 
-  <%# vim: set filetype=eruby.tex : %>
+<%# vim: set filetype=eruby.tex : %>
