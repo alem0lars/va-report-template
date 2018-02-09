@@ -158,8 +158,11 @@ chapters:
           A task to review and update the configurations appropriate to
           all security notes, updates and patches as part of the patch management
           process.
-        references: https://www.owasp.org/index.php/Testing_for_configuration_management
-        component-affected: https://www.join.farfalline.it
+        references:
+          - https://www.owasp.org/index.php/Testing_for_configuration_management
+        components_affected:
+          - https://www.join.farfalline.it
+          - https://www.farfalline.it
       - name: A6-Security Misconfiguration
         severity: Low
         description: |
@@ -175,8 +178,10 @@ chapters:
           A task to review and update the configurations appropriate to
           all security notes, updates and patches as part of the patch management
           process.
-        references: https://www.owasp.org/index.php/Testing_for_configuration_management
-        component-affected: https://www.farfalline.it/readme.html
+        references:
+          - https://www.owasp.org/index.php/Testing_for_configuration_management
+        components_affected:
+          - https://www.farfalline.it/readme.html
   exploitation_confirmation:
   post_exploitation:
   risk:
