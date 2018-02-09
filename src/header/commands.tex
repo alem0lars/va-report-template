@@ -20,7 +20,7 @@
     {\Large \textsc{Technical Report}}\\[5\baselineskip]
     {\large \textbf{Prepared for:} <%= context[:customer][:name] %>}\\
     {\large \textbf{Performed by:} <%= context[:authors].map { |a| a[:name] }.join(", ") %>}\\[1\baselineskip]
-    {\large \textbf{Date:} \today}\\
+    {\large \textbf{Date:} <%= context[:date] %>}\\
 
     \vspace{0.5\textheight}
     <%# TODO logo %>

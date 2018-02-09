@@ -8,7 +8,8 @@
   The following document was written as a reference for the security
   assessment done by <%= context[:authors].map do |author|
     author[:name]
-  end.join(", ") %> towards <%= context[:customer][:name] %> on <%= date %>.
+  end.join(", ") %> towards <%= context[:customer][:name] %> on
+  <%= context[:date] %>.
 
   <%# 2. Contact information %>
 
@@ -42,15 +43,18 @@
 
     The team has done a \textbf{Black-Box Vulnerability Assessment} and
     \textbf{Penetration Test}.
-    No prior knowledge of a company network is known except the two IP mentioned
-    above. In essence an example of this is when an external web based test is
-    to be carried out and only the details of a website URL or IP address is
-    supplied to the testing team. It would be their role to attempt to break
-    into the company website or network.
+    No prior knowledge of a company network is known except the endpoints
+    mentioned above.
+    In essence an example of this is when an external web based test is to be
+    carried out and only the details of a website URL or IP address is supplied
+    to the testing team.
+    It would be their role to attempt to break into the company website or
+    network.
     This would equate to an external attack carried out by a malicious hacker.
 
     The study focuses on main \textbf{Web Vulnerabilities} as described in
     \textbf{OWASP Web Application Penetration Testing Methodology}.
+
     In particular the following testing areas have been considered:
 
     \begin{itemize}
