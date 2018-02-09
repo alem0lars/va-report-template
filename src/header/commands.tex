@@ -16,13 +16,14 @@
     \rule{1pt}{\textheight}
     \hspace*{0.05\textwidth}
     \parbox[b]{0.75\textwidth}{
-    {\noindent\Huge\bfseries Security Assessment clickandplay.it\\}\\[2\baselineskip]
-    {\large \textit{\textbf{Nome:} Thales dos Santos Domingues \ \ \ \ \textbf{Date:} \today \ \ \ \ \textbf{Turma:} VT1 }}\\[1\baselineskip]
-    {\large \textbf{Tema:} Derivadas } \\[4\baselineskip]
-    {\large \textsc{ Prof. Me. Rodrigo Lopes Costa }}
+    {\noindent\Huge\bfseries <%= context[:title] %>}\\[2\baselineskip]
+    {\Large \textsc{Technical Report}}\\[5\baselineskip]
+    {\large \textbf{Prepared for:} <%= context[:customer][:name] %>}\\
+    {\large \textbf{Performed by:} <%= context[:authors].map { |a| a[:name] }.join(", ") %>}\\[1\baselineskip]
+    {\large \textbf{Date:} \today}\\
 
     \vspace{0.5\textheight}
-    {\noindent Universidade Federal de Mato Grosso \\ Campus de Várzea Grande }\\[\baselineskip]
+    <%# TODO logo %>
   }}
 \endgroup}
 

@@ -1,7 +1,7 @@
-\documentclass[10pt, a4paper, twoside]{amsbook}
+\documentclass[10pt, a4paper, twoside]{report}
 
 \include{header/packages}
-\include{header/config}
+\include{header/configs}
 
 \addbibresource{bibliodb.bib}
 
@@ -16,21 +16,25 @@
 
   \sloppy
 
-  <% %i[
-    introduction
-    information_gathering
-    passive_intelligence
-    active_intelligence
-    corporate_intelligence
-    personnel_intelligence
-    vulnerability_assessment
-    exploitation_confirmation
-    post_exploitation
-    risk
-    conclusion
-  ].each do |name| %>
-    <% if context.key? name %>
-      \include{content/<%= name %>}
+  <% puts context %>
+
+  <% if context[:chapters] %>
+    <% %i[
+      introduction
+      information_gathering
+      passive_intelligence
+      active_intelligence
+      corporate_intelligence
+      personnel_intelligence
+      vulnerability_assessment
+      exploitation_confirmation
+      post_exploitation
+      risk
+      conclusion
+    ].each do |name| %>
+      <% if context[:chapters].key? name %>
+        \include{content/<%= name %>}
+      <% end %>
     <% end %>
   <% end %>
 

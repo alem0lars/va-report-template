@@ -1,7 +1,47 @@
 %!TEX root = ../main.tex
 
 
-% TODO
+\chapter{Introduction}\label{cha:introduction}
+
+  <%# 1. Personnel involved in the testing from both the Client and Penetration
+         Testing Team %>
+  The following document was written as a reference for the security
+  assessment done by <%= context[:authors].map do |author|
+    author[:name]
+  end.join(", ") %> towards <%= context[:customer][:name] %> on <%= date %>.
+
+  <%# 2. Contact information %>
+  <%# TODO %>
+
+  <%# 3. Assets involved in testing %>
+  \section{Assets involved}\label{sec:assets-involved}
+
+    The following assets were involved during the testing activities:
+
+    \begin{itemize}
+      <% context[:assets].each do |asset| %>
+        <% if asset.key? :description %>
+          \item \textbf{<%= asset[:name] %>}: <%= asset[:description] %>
+        <% else %>
+          \item \textbf{<%= asset[:name] %>}
+        <% end %>
+      <% end %>
+    \end{itemize}
+
+  <%# 4. Objectives of Test %>
+  <%# TODO %>
+
+  <%# 5. Scope of Test %>
+  <%# TODO %>
+
+  <%# 6. Strength of Test %>
+  <%# TODO %>
+
+  <%# 7. Approach %>
+  <%# TODO %>
+
+  <%# 8. Threat / Grading Structure %>
+  <%# TODO %>
 
 
-<%# vim: set filetype=eruby.tex : %>
+  <%# vim: set filetype=eruby.tex : %>

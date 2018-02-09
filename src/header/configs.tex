@@ -10,7 +10,7 @@
 <%#   -1 part     1 section     3 subsubsection  5 subparagraph %>
 <%#    0 chapter  2 subsection  4 paragraph %>
 \setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{-2}
 
 <%# Allow to break lines in lstlisting %>
 \lstset{breaklines=true}
@@ -19,10 +19,10 @@
 \pagestyle{fancy}
 
 <%# Define how headers and footers are made %>
-\lhead{Technical Report: Security Assessment}
+\lhead{Technical Report: Security Assessment\\for <%= context[:customer][:name] %>}
 \chead{}
-\rhead{(\today) \includegraphics[width=1cm]{resources/ptes-tg-logo}} %
-\lfoot{Casinò di Venezia Meeting \& Dining Services s.r.l.}
+\rhead{\includegraphics[width=1cm]{resources/ptes-tg-logo}}
+\lfoot{\today}
 \cfoot{}
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}

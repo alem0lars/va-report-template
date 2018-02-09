@@ -1,0 +1,29 @@
+authors:
+  - name: Alessandro Molari
+  - name: Giacomo Mantani
+
+customer:
+  name: Istituto Farfallino
+
+title: "Click \\& Play\\\\Security Assessment"
+
+assets:
+  - name: www.farfalle-a-gogo.it
+    description: Main website
+  - name: www.meetme.farfalle-a-gogo.it
+    description: Meeting section of the website
+
+date: "8 Feb 2018"
+
+chapters:
+  introduction:
+  information_gathering:
+  passive_intelligence:
+  active_intelligence:
+  corporate_intelligence:
+  personnel_intelligence:
+  vulnerability_assessment:
+  exploitation_confirmation:
+  post_exploitation:
+  risk:
+  conclusion:
