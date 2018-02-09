@@ -1,7 +1,7 @@
 %!TEX root = ../main.tex
 
 
-\chapter{Introduction}\label{cha:introduction}
+\chapter{Introduction}\label{ch:introduction}
 
   <%# 1. Personnel involved in the testing from both the Client and Penetration
          Testing Team %>
@@ -29,14 +29,32 @@
     \end{itemize}
 
   <%# 4. Objectives of Test %>
-  <%# TODO %>
+
+    <%# TODO %>
 
   <%# 5. Scope of Test %>
   \section{Context \& Scope}\label{sec:scope}
 
     This audit has been carried out at the request of
     <%= context[:customer][:name] %>. Its goal was to evaluate the security of
-    the assets under test, as described in section \ref{sec:assets}.
+    the assets under test, as described in section: \nameref{sec:assets}.
+
+    The study focuses on main Web Vulnerabilities as described in OWASP Web
+    Application Penetration Testing Methodology. In particular the following
+    areas have been considered:
+
+    \begin{itemize}
+      \item Configuration and Deployment Management Testing
+      \item Identity Management Testing
+      \item Authentication Testing
+      \item Authorization Testing
+      \item Session Management Testing
+      \item Input Validation Testing
+      \item Error Handling Testing
+      \item Cryptography Testing
+      \item Business Logic Testing
+      \item Client Side Testing
+    \end{itemize}
 
   <%# 6. Strength of Test %>
   <%# TODO %>
