@@ -18,10 +18,10 @@ date: "8 Feb 2018"
 chapters:
   introduction:
   information_gathering:
-  passive_intelligence:
-  active_intelligence:
-  corporate_intelligence:
-  personnel_intelligence:
+    passive_intelligence:
+    active_intelligence:
+    corporate_intelligence:
+    personnel_intelligence:
   vulnerability_assessment:
   exploitation_confirmation:
   post_exploitation:

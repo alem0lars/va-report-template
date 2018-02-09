@@ -1,7 +1,42 @@
 %!TEX root = ../main.tex
 
 
-% TODO
+<% ig = context[:chapters][:information_gathering] %>
+
+
+\chapter{Information Gathering}\label{ch:infogath}
+
+  <% if ig.key? :passive_intelligence %>
+
+  \section {Passive Intelligence}\label{sec:passiveint}
+
+    <%# TODO %>
+
+  <% end %>
+
+  <% if ig.key? :active_intelligence %>
+
+  \section {Active Intelligence}\label{sec:activeint}
+
+    <%# TODO %>
+
+  <% end %>
+
+  <% if ig.key? :corporate_intelligence %>
+
+  \section {Corporate Intelligence}\label{sec:corporateint}
+
+    <%# TODO %>
+
+  <% end %>
+
+  <% if ig.key? :personnel_intelligence %>
+
+  \section {Personnel Intelligence}\label{sec:personnelint}
+
+    <%# TODO %>
+
+  <% end %>
 
 
 <%# vim: set filetype=eruby.tex : %>
