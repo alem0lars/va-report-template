@@ -19,48 +19,12 @@
     \subsection{DNS information}\label{sub:dnsinfo}
 
       \begin{itemize}
-        \item \textbf{www.clickandplay.it}:
-          \begin{minted}[breaklines=true]{text}
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 24615
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 512
-;; QUESTION SECTION:
-;www.clickandplay.it.           IN      A
-
-;; ANSWER SECTION:
-www.clickandplay.it.    10233   IN      A       94.247.8.130
-
-;; Query time: 34 msec
-;; SERVER: 8.8.8.8#53(8.8.8.8)
-;; WHEN: Fri Feb 07 13:31:55 CET 2018
-;; MSG SIZE  rcvd: 64
-          \end{minted}
-        \item \textbf{control.clickandplay.it}:
-          \begin{minted}[breaklines=true]{text}
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 1481
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 512
-;; QUESTION SECTION:
-;control.clickandplay.it.       IN      A
-
-;; ANSWER SECTION:
-control.clickandplay.it. 21599  IN      A       94.20
-
-;; Query time: 74 msec
-;; SERVER: 8.8.8.8#53(8.8.8.8)
-;; WHEN: Fri Feb 07 13:33:13 CET 2018
-;; MSG SIZE  rcvd: 68
-          \end{minted}
+        <% ig[:passive_intelligence][:dns_scans].each do |dns_scan| %>
+          \item \textbf{<%= dns_scan[:name] %>}:
+            \begin{minted}[breaklines=true]{text}
+<%= dns_scan[:result] %>
+            \end{minted}
+        <% end %>
       \end{itemize}
 
   <% end %>
