@@ -16,7 +16,9 @@
     infrastructure related information, \textit{without} sending any traffic
     directly to the assets.
 
-    \subsection{DNS information}\label{sub:dnsinfo}
+    \subsection{DNS information}\label{subsec:passiveint-dnsinfo}
+
+      The following DNS information has been obtained:
 
       \begin{itemize}
         <% ig[:passive_intelligence][:dns_scans].each do |dns_scan| %>
@@ -27,22 +29,26 @@
         <% end %>
       \end{itemize}
 
-      \paragraph{Summary}~
+    \subsection{Summary}\label{subsec:passiveint-summary}
 
-        \begin{center}
-          \begin{tabularx}{0.4\textwidth}{c c}
-            \toprule
-            \textbf{IP} & \textbf{Domain} \\ \midrule
-            <% ig[:passive_intelligence][:summary].each_with_index do |e, i| %>
-              <%= e[:name] %> & <%= e[:domain] %>\\<%=
-                i < ig[:passive_intelligence][:summary].length - 1 ?
-                "\\midrule" :
-                ""
-              %>
-            <% end %>
-            \bottomrule
-          \end{tabularx}
-        \end{center}
+      The following table summarizes the results gathered from Passive
+      Intelligence activities:
+
+      \begin{center}
+        \begin{tabularx}{0.4\textwidth}{c c}
+          \toprule
+          \textbf{IP} & \textbf{Domain} \\ \midrule
+          <% ig[:passive_intelligence][:summary].each_with_index do |e, i| %>
+            <%= e[:ip] %> & <%= e[:domain] %>\\<%=
+              i < ig[:passive_intelligence][:summary].length - 1 ?
+              "\\midrule" :
+              ""
+            %>
+          <% end %>
+          \bottomrule
+        \end{tabularx}
+      \end{center}
+
   <% end %>
 
   <% if ig.key? :active_intelligence %>
@@ -57,21 +63,45 @@
     in the \textit{client} environment by sending traffic \textit{directly} to
     the assets.
 
-    Nmap is the free and open source utility used for network discovery and
-    security auditing. Nmap uses raw IP packets in novel ways to determine what
-    hosts are available on the network, what services (application name and
-    version) those hosts are offering, what operating systems (and OS versions)
-    they are running, what type of packet filters/firewalls are in use, and
-    dozens of other characteristics.
+    \subsection{Fingerprint information}\label{subsec:activeint-fingerprint}
 
-    \begin{itemize}
-      <% ig[:active_intelligence][:port_scans].each do |port_scan| %>
-        \item \textbf{<%= port_scan[:name] %>}:
-          \begin{minted}[breaklines=true]{text}
+      Nmap is the free and open source utility used for network discovery and
+      security auditing. Nmap uses raw IP packets in novel ways to determine what
+      hosts are available on the network, what services (application name and
+      version) those hosts are offering, what operating systems (and OS versions)
+      they are running, what type of packet filters/firewalls are in use, and
+      dozens of other characteristics.
+
+      The following fingerprinting information has been obtained:
+
+      \begin{itemize}
+        <% ig[:active_intelligence][:port_scans].each do |port_scan| %>
+          \item \textbf{<%= port_scan[:name] %>}:
+            \begin{minted}[breaklines=true]{text}
 <%= port_scan[:result] %>
-          \end{minted}
-      <% end %>
-    \end{itemize}
+            \end{minted}
+        <% end %>
+      \end{itemize}
+
+    \subsection{Summary}\label{subsec:activeint-summary}
+
+      The following table summarizes the results gathered from Active
+      Intelligence activities:
+
+      \begin{center}
+        \begin{tabularx}{\textwidth}{c c c c X}
+          \toprule
+          \textbf{IP} & \textbf{Port} & \textbf{Status} & \textbf{Service} & \textbf{Version} \\ \midrule
+          <% ig[:active_intelligence][:summary].each_with_index do |e, i| %>
+            <%= e[:ip] %> & <%= e[:port] %> & <%= e[:status] %> & <%= e[:service] %> & <%= e[:version] %> \\<%=
+              i < ig[:active_intelligence][:summary].length - 1 ?
+              "\\midrule" :
+              ""
+            %>
+          <% end %>
+          \bottomrule
+        \end{tabularx}
+      \end{center}
 
   <% end %>
 
