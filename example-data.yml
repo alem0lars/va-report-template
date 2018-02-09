@@ -19,6 +19,11 @@ chapters:
   introduction:
   information_gathering:
     passive_intelligence:
+      summary:
+        - ip: 1.3.4.5
+          domain: www.farfalline.it
+        - ip: 1.2.3.4
+          domain: www.join.farfalline.it
       dns_scans:
         - name: www.farfalline.it
           result: |
@@ -59,6 +64,61 @@ chapters:
             ;; SERVER: 8.8.8.8#53(8.8.8.8)
             ;; MSG SIZE  rcvd: 68
     active_intelligence:
+      port_scans:
+        - name: 1.3.4.5
+          result: |
+            Nmap scan report for google-public-dns-a.google.com (8.8.8.8)
+            Host is up (0.034s latency).
+            Not shown: 998 filtered ports
+            PORT    STATE SERVICE    VERSION
+            53/tcp  open  tcpwrapped
+            443/tcp open  ssl/https  gws
+            Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+            Device type: general purpose|printer|specialized
+            Running (JUST GUESSING): OpenBSD 4.X (91%), HP embedded (86%), Crestron 2-Series (85%)
+            OS CPE: cpe:/o:openbsd:openbsd:4.3 cpe:/o:crestron:2_series
+            Aggressive OS guesses: OpenBSD 4.3 (91%), HP PSC 2400-series Photosmart printer (86%), Crestron XPanel control system (85%)
+            No exact OS matches for host (test conditions non-ideal).
+            Network Distance: 7 hops
+
+            TRACEROUTE (using port 443/tcp)
+            HOP RTT      ADDRESS
+            1   4.80 ms  10.20.4.254
+            2   29.08 ms eolo-gw.net.ngi.it (81.174.0.21)
+            3   38.75 ms 10.221.16.1
+            4   38.75 ms 72.14.222.192
+            5   ...
+            6   39.53 ms 108.170.233.143
+            7   38.74 ms google-public-dns-a.google.com (8.8.8.8)
+
+            OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+        - name: 1.2.3.4
+          result: |
+            Nmap scan report for google-public-dns-b.google.com (8.8.4.4)
+            Host is up (0.038s latency).
+            Not shown: 998 filtered ports
+            PORT    STATE SERVICE    VERSION
+            53/tcp  open  tcpwrapped
+            443/tcp open  ssl/https  gws
+            Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+            Device type: general purpose|printer|specialized
+            Running (JUST GUESSING): OpenBSD 4.X (91%), HP embedded (86%), Crestron 2-Series (85%)
+            OS CPE: cpe:/o:openbsd:openbsd:4.3 cpe:/o:crestron:2_series
+            Aggressive OS guesses: OpenBSD 4.3 (91%), HP PSC 2400-series Photosmart printer (86%), Crestron XPanel control system (85%)
+            No exact OS matches for host (test conditions non-ideal).
+            Network Distance: 7 hops
+
+            TRACEROUTE (using port 443/tcp)
+            HOP RTT      ADDRESS
+            1   2.43 ms  10.20.4.254
+            2   13.04 ms eolo-gw.net.ngi.it (81.174.0.21)
+            3   20.32 ms 10.221.16.1
+            4   29.90 ms 72.14.222.192
+            5   ...
+            6   23.23 ms 108.170.233.133
+            7   19.12 ms google-public-dns-b.google.com (8.8.4.4)
+
+            OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
     corporate_intelligence:
     personnel_intelligence:
   vulnerability_assessment:

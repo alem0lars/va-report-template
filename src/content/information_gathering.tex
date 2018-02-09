@@ -27,16 +27,22 @@
         <% end %>
       \end{itemize}
 
-      \begin{center}
-        \begin{tabularx}{0.4\textwidth}{c c}
-          \toprule
-          \textbf{IP} & \textbf{Hostname} \\ \midrule
-          % TODO ale for each IP-HOSTNAME add row
-          94.247.8.55 &  www.clickandplay.it \\ \midrule
-          94.247.8.130 & control.clickandplay.it  \\
-          \bottomrule
-        \end{tabularx}
-      \end{center}
+      \paragraph{Summary}~
+
+        \begin{center}
+          \begin{tabularx}{0.4\textwidth}{c c}
+            \toprule
+            \textbf{IP} & \textbf{Domain} \\ \midrule
+            <% ig[:passive_intelligence][:summary].each_with_index do |e, i| %>
+              <%= e[:name] %> & <%= e[:domain] %>\\<%=
+                i < ig[:passive_intelligence][:summary].length - 1 ?
+                "\\midrule" :
+                ""
+              %>
+            <% end %>
+            \bottomrule
+          \end{tabularx}
+        \end{center}
   <% end %>
 
   <% if ig.key? :active_intelligence %>
@@ -48,7 +54,7 @@
     foot printing activities.
 
     Active Intelligence focus on the techniques used to profile the technology
-    in the \textit{client} enviroment by sending traffic \textit{directly} to
+    in the \textit{client} environment by sending traffic \textit{directly} to
     the assets.
 
     Nmap is the free and open source utility used for network discovery and
@@ -59,99 +65,12 @@
     dozens of other characteristics.
 
     \begin{itemize}
-      % TODO ale for each IP-NMAP-OUTPUT add item+minted
-      \item \textbf{94.247.8.130}
+      <% ig[:active_intelligence][:port_scans].each do |port_scan| %>
+        \item \textbf{<%= port_scan[:name] %>}:
           \begin{minted}[breaklines=true]{text}
-Nmap scan report for host-94-247-8-130.venis.it (94.247.8.130)
-Host is up (0.048s latency).
-Not shown: 998 filtered ports
-PORT    STATE SERVICE  VERSION
-80/tcp  open  http     Apache httpd 2.4.29 ((Unix) OpenSSL/1.0.2n mod_jk/1.2.42 PHP/5.6.33)
-|_http-server-header: Apache/2.4.29 (Unix) OpenSSL/1.0.2n mod_jk/1.2.42 PHP/5.6.33
-|_http-title: Site doesn't have a title (text/html).
-443/tcp open  ssl/http Apache httpd 2.4.29 ((Unix) OpenSSL/1.0.2n mod_jk/1.2.42 PHP/5.6.33)
-|_http-server-header: Apache/2.4.29 (Unix) OpenSSL/1.0.2n mod_jk/1.2.42 PHP/5.6.33
-|_http-title: Did not follow redirect to https://wpskinplatform.clickandplay.it/wp-signup.php?new=host-94-247-8-130.venis.it
-| ssl-cert: Subject: commonName=*.clickandplay.it
-| Subject Alternative Name: DNS:*.clickandplay.it, DNS:clickandplay.it
-| Not valid before: 2017-08-03T00:00:00
-|_Not valid after:  2018-08-20T23:59:59
-|_ssl-date: TLS randomness does not represent time
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Device type: general purpose|firewall|proxy server|WAP|PBX
-Running (JUST GUESSING): Linux 2.6.X (93%), Cisco embedded (89%), Riverbed embedded (89%), ZoneAlarm embedded (89%), Ruckus embedded (87%)
-OS CPE: cpe:/o:linux:linux_kernel:2.6.18 cpe:/o:linux:linux_kernel:2.6 cpe:/h:cisco:sa520 cpe:/h:riverbed:steelhead_200 cpe:/h:zonealarm:z100g cpe:/h:ruckus:7363 cpe:/h:cisco:uc320w
-Aggressive OS guesses: Linux 2.6.18 (93%), Cisco SA520 firewall (Linux 2.6) (89%), Linux 2.6.9 - 2.6.27 (89%), Riverbed Steelhead 200 proxy server (89%), ZoneAlarm Z100G WAP (89%), Linux 2.6.9 (89%), Linux 2.6.32 (88%), Linux 2.6.28 (87%), Linux 2.6.30 (87%), Ruckus 7363 WAP (87%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 15 hops
-
-TRACEROUTE (using port 443/tcp)
-HOP RTT      ADDRESS
-1   12.57 ms modemtim (192.168.1.1)
-2   ...
-3   26.55 ms 172.18.48.234
-4   18.76 ms 172.18.48.236
-5   43.51 ms 172.17.8.213
-6   46.11 ms 172.17.8.213
-7   43.11 ms 172.19.0.183
-8   35.91 ms r-rm2d-r-rm156.opb.interbusiness.it (151.99.98.2)
-9   37.34 ms 83.224.40.225
-10  38.54 ms 83.224.40.102
-11  36.87 ms 83.224.126.118
-12  39.04 ms 94.247.12.90
-13  48.34 ms host-94-247-8-5.venis.it (94.247.8.5)
-14  46.17 ms host-94-247-8-5.venis.it (94.247.8.5)
-15  50.38 ms host-94-247-8-130.venis.it (94.247.8.130)
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-        \end{minted}
-
-      \item \textbf{94.247.8.55}
-        \begin{minted}[breaklines=true]{text}
-Nmap scan report for host-94-247-8-55.venis.it (94.247.8.55)
-Host is up (0.050s latency).
-Not shown: 998 filtered ports
-PORT    STATE SERVICE  VERSION
-80/tcp  open  http     Apache httpd 2.4.29 ((Unix) OpenSSL/1.0.2n mod_jk/1.2.42)
-|_http-server-header: Apache/2.4.29 (Unix) OpenSSL/1.0.2n mod_jk/1.2.42
-|_http-title: Did not follow redirect to https://host-94-247-8-55.venis.it/
-443/tcp open  ssl/http Apache httpd 2.4.29 ((Unix) OpenSSL/1.0.2n mod_jk/1.2.42)
-|_http-server-header: Apache/2.4.29 (Unix) OpenSSL/1.0.2n mod_jk/1.2.42
-|_http-title: Site doesn't have a title (text/html).
-| ssl-cert: Subject: commonName=*.clickandplay.it
-| Subject Alternative Name: DNS:*.clickandplay.it, DNS:clickandplay.it
-| Not valid before: 2017-08-03T00:00:00
-|_Not valid after:  2018-08-20T23:59:59
-|_ssl-date: TLS randomness does not represent time
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Device type: general purpose|WAP|firewall|proxy server|PBX
-Running (JUST GUESSING): Linux 2.6.X (93%), ZoneAlarm embedded (89%), Cisco embedded (87%), Riverbed embedded (87%), Ruckus embedded (85%)
-OS CPE: cpe:/o:linux:linux_kernel:2.6.18 cpe:/h:zonealarm:z100g cpe:/o:linux:linux_kernel:2.6 cpe:/h:cisco:sa520 cpe:/h:riverbed:steelhead_200 cpe:/h:cisco:uc320w cpe:/h:ruckus:7363
-Aggressive OS guesses: Linux 2.6.18 (93%), Linux 2.6.9 (91%), Linux 2.6.9 - 2.6.27 (89%), ZoneAlarm Z100G WAP (89%), Linux 2.6.32 (88%), Cisco SA520 firewall (Linux 2.6) (87%), Linux 2.6.11 (87%), Riverbed Steelhead 200 proxy server (87%), Linux 2.6.22.1-32.fc6 (x86, SMP) (86%), Oracle Enterprise Linux 6 (Linux 2.6.32) (86%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 15 hops
-
-TRACEROUTE (using port 443/tcp)
-HOP RTT      ADDRESS
-1   8.80 ms  modemtim (192.168.1.1)
-2   ...
-3   17.60 ms 172.18.48.142
-4   15.54 ms 172.18.48.248
-5   40.58 ms 172.17.9.149
-6   43.29 ms 172.17.8.58
-7   38.15 ms 172.19.0.185
-8   38.18 ms 172.19.0.185
-9   32.81 ms 83.224.40.225
-10  32.90 ms 83.224.40.225
-11  32.44 ms 83.224.40.102
-12  48.97 ms 83.224.126.118
-13  47.06 ms host-94-247-8-5.venis.it (94.247.8.5)
-14  48.05 ms host-94-247-8-5.venis.it (94.247.8.5)
-15  44.00 ms host-94-247-8-55.venis.it (94.247.8.55)
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-      \end{minted}
-
+<%= port_scan[:result] %>
+          \end{minted}
+      <% end %>
     \end{itemize}
 
   <% end %>
