@@ -1,19 +1,33 @@
-% Setup sectioning levels numbering options
-%
-% * The `tocdepth` value determines to which level the sectioning commands are
-%   printed in the ToC
-% * The `secnumdepth` value determines up to what level the sectioning titles
-%   are numbered
-%
-% The sectioning levels have the following numbers:
-%   -1 part     1 section     3 subsubsection  5 subparagraph
-%    0 chapter  2 subsection  4 paragraph
-%
+%!TEX root = ../main.tex
+
+
+<%# Setup sectioning levels numbering options %>
+<%# - The `tocdepth` value determines to which level the sectioning commands are %>
+<%#   printed in the ToC %>
+<%# - The `secnumdepth` value determines up to what level the sectioning titles %>
+<%#   are numbered %>
+<%# The sectioning levels have the following numbers: %>
+<%#   -1 part     1 section     3 subsubsection  5 subparagraph %>
+<%#    0 chapter  2 subsection  4 paragraph %>
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
-% Allow to break lines in lstlisting.
+<%# Allow to break lines in lstlisting %>
 \lstset{breaklines=true}
+
+<%# Use fancy headers on all pages %>
+\pagestyle{fancy}
+
+<%# Define how headers and footers are made %>
+\lhead{Technical Report: Security Assessment}
+\chead{}
+\rhead{(\today) \includegraphics[width=1cm]{resources/ptes-tg-logo}} %
+\lfoot{Casinò di Venezia Meeting \& Dining Services s.r.l.}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength\headheight{27pt} % just to make warning go away
 
 
 <%# vim: set filetype=eruby.tex : %>

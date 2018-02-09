@@ -1,17 +1,30 @@
 %!TEX root = ../main.tex
 
 
-% Convert an SVG file to PDF and include it.
-%
-% Parameters:
-%   1. Path to SVG file.
-%
-% Requirements: `librsvg`
-%
+<%# Convert an SVG file to PDF and include it. %>
+<%# Parameters: %>
+<%#   1. Path to SVG file. %>
+<%# Requirements: `librsvg` %>
 \newcommand{\includesvg}[1]{%
   \immediate\write18{rsvg-convert -f pdf -a -o #1.pdf #1.svg}%
   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#1.pdf}
 }
+
+\newcommand*{\createfrontmatter}{\begingroup
+  \hbox{
+    \hspace*{0.2\textwidth}
+    \rule{1pt}{\textheight}
+    \hspace*{0.05\textwidth}
+    \parbox[b]{0.75\textwidth}{
+    {\noindent\Huge\bfseries Security Assessment clickandplay.it\\}\\[2\baselineskip]
+    {\large \textit{\textbf{Nome:} Thales dos Santos Domingues \ \ \ \ \textbf{Date:} \today \ \ \ \ \textbf{Turma:} VT1 }}\\[1\baselineskip]
+    {\large \textbf{Tema:} Derivadas } \\[4\baselineskip]
+    {\large \textsc{ Prof. Me. Rodrigo Lopes Costa }}
+
+    \vspace{0.5\textheight}
+    {\noindent Universidade Federal de Mato Grosso \\ Campus de Várzea Grande }\\[\baselineskip]
+  }}
+\endgroup}
 
 
 <%# vim: set filetype=eruby.tex : %>

@@ -1,7 +1,14 @@
 %!TEX root = ../main.tex
 
 
-% TODO
+<%# Don't use header/footer in the frontmatter %>
+\thispagestyle{empty}
+
+<%# Create the frontmatter %>
+\createfrontmatter{}
+
+<%# Restore default page style %>
+\thispagestyle{plain}
 
 
 <%# vim: set filetype=eruby.tex : %>
